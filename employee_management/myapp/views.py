@@ -59,6 +59,7 @@ def employee_delete(request, id):
 def user_list(request):
     users = User.objects.all()
     return render(request, 'user/user_list.html', {'users': users})
+    
 @login_required
 def add_user(request):
     if request.method == 'POST':
