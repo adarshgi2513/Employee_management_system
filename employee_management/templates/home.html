@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 50px;
+            background-color: #f8f9fa;
+            background-image:  url('static/image/im.png');;
+        }
+        .header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .btn-custom {
+            margin: 10px;
+            width: 200px;
+        }
+        .card-custom {
+            margin-top: 20px;
+            padding: 20px;
+        }
+        .display-4{
+            color: rgb(13, 10, 10);
+            size: 20px;
+        }
+    </style>
+</head>
+<body >
+    <div class="container">
+        <div class="header">
+            <h2 class="display-4">Welcome to the Employee Management System</h2>
+            <p class="lead">Manage your employees efficiently and effectively</p> 
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card card-custom">
+                    <div class="card-body text-center">
+                        <p><a href="{% url 'employee_list' %}" class="btn btn-primary btn-lg btn-custom">View Employee List</a></p>
+                        <p><a href="{% url 'user_list' %}" class="btn btn-secondary btn-lg btn-custom">View User List</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if user_form.instance.pk %}Edit{% else %}Add{% endif %} Admin User</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #9b6cae, #cc9d7a);
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #8b8484;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        .container h2 {
+            color: #333333;
+        }
+        .btn-primary {
+            background-color: #c09186;
+            border-color: #ff7e5f;
+        }
+        .btn-primary:hover {
+            background-color: #816652;
+            border-color: #feb47b;
+        }
+        .btn-secondary {
+            background-color: #333333;
+            border-color: #333333;
+        }
+        .btn-secondary:hover {
+            background-color: #555555;
+            border-color: #555555;
+        }
+        .form-control {
+            border-radius: 20px;
+        }
+        .btn-block {
+            margin-top: 10px;
+            border-radius: 20px;
+        }
+        .form-group.required .col-form-label:after {
+            content:"*";
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">{% if user_form.instance.pk %}Edit{% else %}Add{% endif %} Admin User</h2>
+        <form method="post" novalidate class="needs-validation">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            <button type="submit" class="btn btn-primary btn-block">Save</button>
+            <a href="{% url 'user_list' %}" class="btn btn-secondary btn-block">Back to List</a>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+</body>
+</html>

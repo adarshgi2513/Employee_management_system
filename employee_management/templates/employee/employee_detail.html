@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Detail</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .detail-container {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .detail-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="detail-container mt-5">
+                    <h2 class="text-center">Employee Detail</h2>
+                    <p><strong>Emp No:</strong> {{ employee.emp_no }}</p>
+                    <p><strong>Name:</strong> {{ employee.name }}</p>                            
+                    <p><strong>Address:</strong> {{ employee.address }}</p>
+                    <p><strong>Start Date:</strong> {{ employee.emp_start_date }}</p>
+                    <p><strong>End Date:</strong> {{ employee.emp_end_date }}</p>
+                    <p><strong>Status:</strong> {{ employee.status }}</p>
+                    <p style="height: 100px;width: 100px;"><strong>Photo:</strong> 
+                        {% if employee.photo %}
+                            <img src="{{ employee.photo.url }}" alt="Photo">
+                        {% else %}
+                            No photo available
+                        {% endif %}
+                    </p>
+                    <div class="btn-container">
+                        <a href="{% url 'employee_edit' employee.id %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'employee_delete' employee.id %}" class="btn btn-danger">Delete</a>
+                        <a href="{% url 'employee_list' %}" class="btn btn-secondary">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

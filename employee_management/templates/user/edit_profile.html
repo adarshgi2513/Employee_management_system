@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #ff6a5b, #ffcc33);
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+        .container {
+            margin-top: 50px;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 40px;
+            color: #ff6a5b;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #ff6a5b;
+            border-color: #ff6a5b;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 30px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            background-color: #e55d4a;
+            border-color: #e55d4a;
+        }
+        .btn-secondary {
+            background-color: #ffcc33;
+            border-color: #ffcc33;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 30px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .btn-secondary:hover {
+            background-color: #e6b82a;
+            border-color: #e6b82a;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-control {
+            border-radius: 30px;
+            padding: 12px;
+            border: 2px solid #ffcc33;
+        }
+        label {
+            color: #ff6a5b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Edit Profile</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ user_form.as_p }}
+            </div>
+            <div class="form-group">
+                {{ profile_form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+        <a href="{% url 'employee_list' %}" class="btn btn-secondary mt-3">Back</a>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
